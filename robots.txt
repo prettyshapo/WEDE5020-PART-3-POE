@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Disallow: /private/
+Sitemap: https://www.allures.co.za/sitemap.xml
