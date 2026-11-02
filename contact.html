@@ -1,0 +1,27 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Contact | ALLURES General Message</title><meta name="description" content="Contact ALLURES for general message. 126 Lekhureng Road, Ga Matlala, Limpopo."><link rel="stylesheet" href="style.css"></head><body>
+<header><h1>ALLURES Contact</h1><nav><a href="index.html">Home</a><a href="enquiry.html">Enquiry</a></nav></header>
+<main><h2>Contact Form - General</h2>
+<form id="contactForm" action="mailto:info@Allures.co.za" method="POST" novalidate>
+<label>Name: <input type="text" id="c-name" name="name"><span id="c-name-error" class="error"></span></label>
+<label>Email: <input type="email" id="c-email" name="email"><span id="c-email-error" class="error"></span></label>
+<label>Message Type: <select id="c-type" name="type"><option value="">Select</option><option>General</option><option>Compliment</option><option>Complaint</option><option>Support</option></select><span id="c-type-error" class="error"></span></label>
+<label>Full Message: <textarea id="c-message" name="message"></textarea><span id="c-message-error" class="error"></span></label>
+<button type="submit">Send Message</button>
+</form><div id="contactResponse"></div></main>
+<script>
+document.getElementById('contactForm').addEventListener('submit',function(e){
+ e.preventDefault(); let valid=true;
+ document.querySelectorAll('.error').forEach(el=>el.style.display='none');
+ let name=document.getElementById('c-name').value.trim();
+ let email=document.getElementById('c-email').value.trim();
+ let type=document.getElementById('c-type').value;
+ let msg=document.getElementById('c-message').value.trim();
+ if(name.length<3){document.getElementById('c-name-error').textContent='Min 3 chars'; document.getElementById('c-name-error').style.display='block'; valid=false;}
+ if(!email.includes('@')){document.getElementById('c-email-error').textContent='Valid email required'; document.getElementById('c-email-error').style.display='block'; valid=false;}
+ if(type===''){document.getElementById('c-type-error').textContent='Select message type'; document.getElementById('c-type-error').style.display='block'; valid=false;}
+ if(msg.length<10){document.getElementById('c-message-error').textContent='Min 10 chars'; document.getElementById('c-message-error').style.display='block'; valid=false;}
+ if(!valid) return;
+ fetch(this.action,{method:'POST',body:JSON.stringify({name,email,type,msg}),headers:{'Content-Type':'application/json'}})
+ .then(()=>{document.getElementById('contactResponse').innerHTML=`<div class="success-msg"><h3>Message Sent ${name}!</h3><p>Your ${type} message compiled into email to info@Allures.co.za. We reply Mon-Fri 10am-6pm.</p></div>`; this.reset();});
+});
+</script></body></html>
