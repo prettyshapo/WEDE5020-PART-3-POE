@@ -1,0 +1,9 @@
+products.html
+
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Products | ALLURES Luxury Perfume Collection Limpopo</title><meta name="description" content="Shop ALLURES Eau de Parfum collection: Essence, Blush Aura, Citrus Dawn. Affordable luxury from Ga Matlala."><link rel="stylesheet" href="style.css"></head><body>
+<header><h1>ALLURES Products</h1><nav><a href="index.html">Home</a><a href="enquiry.html">Enquiry</a><a href="contact.html">Contact</a></nav></header>
+<main><h2>Our Collection</h2><div id="product-list-products" class="products"></div><p><a href="enquiry.html">Enquire about cost and availability</a></p></main>
+<script src="script.js"></script>
+<script> // Load products on this page too
+document.addEventListener('DOMContentLoaded',()=>{ if(document.getElementById('product-list-products')){ const c=document.getElementById('product-list-products'); products.forEach(p=>{c.innerHTML+=`<article class="product"><img src="${p.img}" alt="${p.name} Eau de Parfum"><h3>${p.name}</h3><p>${p.desc}</p><p>${p.price}</p></article>`}); }});
+</script></body></html>
