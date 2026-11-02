@@ -1,0 +1,33 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Enquiry | ALLURES Stockist Volunteer Sponsor</title><meta name="description" content="Enquire about ALLURES cost and availability, stockist, volunteer, sponsor."><link rel="stylesheet" href="style.css"></head><body>
+<header><h1>ALLURES Enquiry</h1><nav><a href="index.html">Home</a><a href="products.html">Products</a><a href="contact.html">Contact</a></nav></header>
+<main><h2>Enquiry Form - Services/Products/Volunteer</h2>
+<form id="enquiryForm" action="https://formspree.io/f/x" method="POST" novalidate>
+<label>Full Name: <input type="text" id="e-name" name="name"><span id="e-name-error" class="error"></span></label>
+<label>Email: <input type="email" id="e-email" name="email"><span id="e-email-error" class="error"></span></label>
+<label>Phone: <input type="tel" id="e-phone" name="phone" placeholder="+27..."><span id="e-phone-error" class="error"></span></label>
+<label>Enquiry Type: <select id="e-type" name="type"><option value="">Select</option><option>Product Enquiry</option><option>Become Stockist</option><option>Volunteer</option><option>Sponsor</option></select><span id="e-type-error" class="error"></span></label>
+<label>Message: <textarea id="e-message" name="message"></textarea><span id="e-message-error" class="error"></span></label>
+<button type="submit">Submit Enquiry</button>
+</form><div id="enquiryResponse"></div></main>
+<script>
+document.getElementById('enquiryForm').addEventListener('submit',function(e){
+ e.preventDefault(); let valid=true;
+ document.querySelectorAll('.error').forEach(el=>{el.style.display='none'; el.textContent='';});
+ document.querySelectorAll('input,textarea,select').forEach(el=>el.classList.remove('input-error'));
+ let name=document.getElementById('e-name').value.trim();
+ let email=document.getElementById('e-email').value.trim();
+ let phone=document.getElementById('e-phone').value.trim();
+ let type=document.getElementById('e-type').value;
+ let msg=document.getElementById('e-message').value.trim();
+ if(name.length<3){show('e-name-error','Min 3 chars'); valid=false;}
+ if(!email.includes('@')||!email.includes('.')){show('e-email-error','Valid email like info@Allures.co.za'); valid=false;}
+ if(!phone.startsWith('+27')||phone.length<12){show('e-phone-error','Must start +27, e.g. +27819990000'); valid=false;}
+ if(type===''){show('e-type-error','Select type'); valid=false;}
+ if(msg.length<10){show('e-message-error','Min 10 chars'); valid=false;}
+ if(!valid) return;
+ fetch(this.action,{method:'POST',body:JSON.stringify({name,email,phone,type,msg}),headers:{'Content-Type':'application/json','Accept':'application/json'}})
+ .then(()=>{document.getElementById('enquiryResponse').innerHTML=`<div class="success-msg"><h3>Thank you ${name}!</h3><p>Enquiry about <b>${type}</b> received. Cost: R800-R899.99, Availability: In Stock at Ga Matlala. Reply to ${email} in 24h.</p></div>`; this.reset();})
+ .catch(()=>{document.getElementById('enquiryResponse').innerHTML=`<p class="error" style="display:block">Error, email info@Allures.co.za</p>`;});
+ function show(id,m){let el=document.getElementById(id); el.textContent=m; el.style.display='block'; document.getElementById(id.replace('-error','')).classList.add('input-error');}
+});
+</script></body></html>
