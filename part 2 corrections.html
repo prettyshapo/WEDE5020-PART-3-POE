@@ -1,0 +1,152 @@
+<! DOCTYPE html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewpoint" content="width=device-width, initial-scale=1.0"
+<title>ALLURES -Embrace Your Scent</title>
+<!-- Montserrat font for body texts 
+<link href="https://fonts.googlepis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+<!-- 2.1 External stylesheet -->
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+<h1>ALLURES</h1>
+<p class="tagline">Embrace Your Scent</p>
+<nav>
+<a href="#home">Homepage</a>
+<a href="products">Products</a>
+<a href="#about">About Us</a>
+<a href="#contact">Contacts</a>
+</nav>
+</header>
+
+<main>
+
+<!-- 1. HOMEPAGE: Hero banner with siganature scent,featured collections and SHOP NOW button -->
+<section id="home" class="hero">
+<div class="hero-text">
+<h2>Signature Scent - Allures Essence</h2>
+<p>Luxury Eau de Parfum crafted in Limpopo with marula and rooibos botanicals. Long-lasting, elegant, unforgettable.</p>
+<button onclick="location.href='#products'">SHOP NOW</button>
+</div>
+<!-- 3.3 Responsive + fast loading images -->
+<picture>
+<source media="(max-width: 600px)" srcset="images/hero-small.jpg">
+<img src="images/hero.jpg"
+     srcset="images/hero-small.jpg 480w, images/hero-medium.jpg 768w, images/hero.jpg 1200w"
+     sizes="100vw"
+     alt="Professional Allures perfume bottle with botanical background to tell a story"
+     loading="lazy">
+</picture>
+</section>
+
+<!-- Featured Collections -->
+<section id="featured">
+<h2>Featured Collections</h2>
+<div clas="products">
+<article class="products">
+<img src="images/allures-essence.jpg" loading="lazy" alt="Allures Essence professional bottle">
+<h3>Allures Essence<h3>
+<p>R 899.99</p>
+</article class="product">
+<img src="images/blush-aura.jpg" loading="lazy" alt="Blush Aura professional bottle with soft botanical background">
+<h3>Blush Aura</h3>
+<p>R 800</p>
+</article>
+<article class="product">
+<img src=images/citrus-dawn.jpg" loading="lazy" alt=Citrus Dawn professional bottle">
+<h3>Citrus Dawn</h3>
+<p>R 820</p>
+</article>
+</div>
+</section>
+
+<!-- 2. PRODUCTS PAGE: Displays perfumes with filters for genders, price, size options and Add to Cart -->
+<section id="products">
+<h2>Products Page</h2>
+
+<!-- Filters -->
+<div class="filters">
+<label>Gender:
+<select><option>All</option><option For Her</option><option> For Him</option><option>Unisex</option></select>
+</label>
+<label>Price:
+<select><option>All</option><option>R0 - R800</option><option>R800 - R900</option></select>
+</label>
+<label>Size:
+<select><option>30ml</option><option>50ml</option><option>100ml</option></select>
+</label>
+</div>
+
+<div class="products">
+<article class="products">
+<img src="images/allures-essence.jpg" srcset="images/allures-essence-small.jpg 480w, images/allures-essence.jpg 800w" sizes="(max-width:768px) 90vw, 300px" loading="lazy" alt="Allures Essence 50ml Eau de Parfum">
+<h3>Allures Essence</h3>
+<p> class="price">R 899.99</p>
+<button>Add to Cart</button>
+</article>
+<article class="product">
+<img src="images/citrus-dawn.jpg" loading="lazy" alt=Citrus Dawn 50ml">
+<h3>Citrus Dawn</h3>
+<p>Eau de Parfum - 50ml - Bergamont, jasmine, sandalwood.</p>
+<p class="price">R 820</p>
+<button>Add to Cart</button>
+</article>
+</div>
+</section>
+
+<!-- 3. ABOUT US PAGE:Tells Allures brand story, mission and values -->
+<section id="about">
+<h2>About Us Page,/h2>
+<h3>Brand Story</h3>
+<p>Allures was founded in 2024 in Ga Matlala, Limpopo, with a dream to create affordable luxury perfumes inspired by African botanicals.What started as a small home business now crafts signature scents for South Africa.</
+p>
+<h3>Mission</h3>
+<p>To provide high-quality, long-lasting fragrances that tell a story of elegance, confidence and African heritage, while keeping eye comfortability with soft colors and quality.</p>
+<h3>Values</h3>
+<p>Quality - Elegance - Sustainability -  Community. We use cruelty-free ingredients, soft colors for user comfort, and support local farmers for marula and rooibos.</p>
+</section>
+
+<!--4. CONTACT PAGE -->
+<section id="contact">
+<h2>Contact Page</h2>
+<div class="contact-box">
+<p><strong>Phone:</strong> +27 81 9999</p>
+<p><strong>Email:</strong> <a href="mailto; info@Allures.co.za">info@Allures.co.za</a></p>
+<p><strong>Whatsapp:</strong> +27 81 9999</p>
+<p><strong>Adress:</strong> 126 Lekhureng Road,Ga Matlala, Limpopo</p>
+<P><strong>Operating Hours:</strong>Mon-Fri 10am-6pm</p>
+</div>
+
+<form>
+<label for="c-name">Full Name:</label>
+<input type="text" id="c-name" required>
+<label for="c-email">Email:</label>
+<input type="email" id="c-mail" required>
+<label for="c-message" rows="5" required></textarea>
+<button type="submit">Send Message</button>
+</form>
+
+<!--Secure payment badges -->
+<div class="payment-badges">
+<h3>Secure Payments - Build Trust</h3>
+<p>PayShap | Capitec Pay | Visa | Mastercard</p> 
+<img src="images/payshap-badge.png" alt="PayShap secure payment badge" loading="lazy" width="100"> 
+<img src="images/capitec-badge.png" alt="Capitec secure payment badge" loading="lazy" width="100">
+</div>
+</section>
+
+</main>
+
+<footer>
+<p>&copy; 2026 ALLURES | 126 Lekhureng Road, Ga Matlala, Limpopo | info@Allures.co.za | +27 81 9999</p>
+</footer>
+
+</body>
+</html>
+
+ 
+ 
+
+ 
